@@ -15,47 +15,66 @@
                     @endif
 
 
-                    <a href="{{route('product.home')}}" class="btn btn-secondary">Back</a>
+                    <a href="{{route('order.home')}}" class="btn btn-secondary">Back</a>
 
                     <div class="container mt-3">
 
-                        <table class="table table-hover">
-                            <thead>
-                                <tr>
-                                    <th>Name
-                                    </th>
-                                    <td>
-                                        {{$product->name}}
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th>Price
-                                    </th>
-                                    <td>
-                                        {{$product->price}}
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th>Code
-                                    </th>
-                                    <td>
-                                        {{$product->code}}
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th>Expiry Date
-                                    </th>
-                                    <td>
-                                        {{$product->expirydate}}
-                                    </td>
-                                </tr>
+                    <table class="table table-hover">
+                                <tbody>
+
+                                    <tr>
+                                        <th>Order ID
+                                        </th>
+                                        <td>
+                                           {{$order->orderid}}
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <th>Customer Name
+                                        </th>
+                                        <td>
+                                            {{$customer->name}}
+
+                                        </td>
+
+                                    </tr>
+
+                                    <tr>
+                                        <th>Order Date
+                                        </th>
+                                        <td>
+                                           {{$order->orderdate}}
+                                        </td>
+
+                                    </tr>
+
+                                    <tr>
+                                        <th>Order Time
+                                        </th>
+                                        <td>
+                                        {{$order->ordertime}}
+
+                                        </td>
+
+                                    </tr>
+
+                                    <tr>
+                                        <th>Net Amount
+                                        </th>
+                                        <td>
+                                        {{$order->netamount}}
+
+                                        </td>
+
+                                    </tr>
 
 
-                            </thead>
-                            <tbody>
 
-                            </tbody>
-                        </table>
+
+                                </tbody>
+
+                            </table>
                     </div>
                 </div>
             </div>

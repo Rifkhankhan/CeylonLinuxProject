@@ -33,15 +33,17 @@ class OrderController extends Controller
         return view('Order.home', compact('orders', 'i'));
     }
 
-    public function edit($id)
-    {
-        $order = Order::where('id', $id)->first();
-        $products = Product::all();
-        $product = Product::find($issue->purchaseproduct);
+    // public function edit($id)
+    // {
+    //     $order = Order::where('id', $id)->first();
+    //     $customer = Customer::find($id);
+
+    //     $products = Product::all();
+    //     $product = Product::find($issue->purchaseproduct);
 
 
-        return view('Issue.edit', compact('order','product','products'));
-    }
+    //     return view('Order.edit', compact('order','product','products','customer'));
+    // }
 
     public function create()
     {
@@ -55,8 +57,9 @@ class OrderController extends Controller
 
     public function view($id)
     {
-        $issue = Order::where('id', $id)->first();
-        return view('Order.view', compact('order'));
+        $order = Order::where('id', $id)->first();
+        $customer = Customer::find($order->customerid);
+        return view('Order.view', compact('order','customer'));
 
     }
 
@@ -76,9 +79,9 @@ class OrderController extends Controller
         DB::table('orders')->insert([
             'orderid'=> hexdec(uniqid()),
             'customerid' => $request->customerid,
-           
-            'orderdate' => Carbon::today(),
-            'ordertime' => Carbon::now()->format('h:i:s'),
+
+            'orderdate' => Carbon::today()->format('Y-m-d'),
+            'ordertime' =>Carbon::now()->format('H:i:m'),
             'netamount' => $total,
 
         ]);
@@ -87,38 +90,38 @@ class OrderController extends Controller
         return redirect()->route('order.home')->with('success', 'successfully inserted');
     }
 
-    public function update(Request $request, $id)
-    {
-        $request->validate([
-            'name' => 'required',
-            'type' => "required",
-            'purchaseproduct' => "required",
-            'freeproduct' => 'required',
-            'pquantity' => "required",
-            'fquantity' => "required",
-            'lowerlimit' => "required|numeric|gt:-1",
-            'upperlimit' => "required|numeric|gt:0",
+    // public function update(Request $request, $id)
+    // {
+    //     $request->validate([
+    //         'name' => 'required',
+    //         'type' => "required",
+    //         'purchaseproduct' => "required",
+    //         'freeproduct' => 'required',
+    //         'pquantity' => "required",
+    //         'fquantity' => "required",
+    //         'lowerlimit' => "required|numeric|gt:-1",
+    //         'upperlimit' => "required|numeric|gt:0",
 
-        ]);
-
-
+    //     ]);
 
 
-        DB::table('orders')->where('id',$id)->update([
-            'name' => $request->name,
-            'type' =>  $request->type,
-            'purchaseproduct' => $request->purchaseproduct,
-            'freeproduct' => $request->freeproduct,
-            'pquantity' =>  $request->pquantity,
-            'fquantity' =>  $request->fquantity,
-            'lowerlimit' =>  $request->lowerlimit,
-            'upperlimit' =>  $request->upperlimit,
-        ]);
 
 
-        return redirect()->route('order.home')->with('success', 'successfully updated');
+    //     DB::table('orders')->where('id',$id)->update([
+    //         'name' => $request->name,
+    //         'type' =>  $request->type,
+    //         'purchaseproduct' => $request->purchaseproduct,
+    //         'freeproduct' => $request->freeproduct,
+    //         'pquantity' =>  $request->pquantity,
+    //         'fquantity' =>  $request->fquantity,
+    //         'lowerlimit' =>  $request->lowerlimit,
+    //         'upperlimit' =>  $request->upperlimit,
+    //     ]);
 
 
-    }
+    //     return redirect()->route('order.home')->with('success', 'successfully updated');
+
+
+    // }
 
 }

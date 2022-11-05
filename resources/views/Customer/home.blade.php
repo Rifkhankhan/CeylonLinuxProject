@@ -47,7 +47,6 @@
                                     <td>
                                         <a href="{{route('customer.view',$customer->id)}}" class="btn btn-primary">View</a>
                                         <a href="{{route('customer.edit',$customer->id)}}" class="btn btn-success">Edit</a>
-                                        <a href="{{route('customer.delete',$customer->id)}}" class="btn btn-danger">Delete</a>
 
                                     </td>
                                 </tr>

@@ -27,7 +27,7 @@
                                 <tr class="text-center">
                                     <th>ID</th>
                                     <th>Order No</th>
-                                    <th>Customer Name</th>
+                                    <th>Customer ID</th>
                                     <th>Order Date</th>
                                     <th>Order Time</th>
                                     <th>Net Amount</th>
@@ -49,7 +49,7 @@
                                     <td>{{$order->netamount}}</td>
                                     <td>
                                         <a href="{{route('order.view',$order->id)}}" class="btn btn-primary">View</a>
-                                        <a href="{{route('order.edit',$order->id)}}" class="btn btn-success">Edit</a>
+                                        <!-- <a href="{{route('order.edit',$order->id)}}" class="btn btn-success">Edit</a> -->
 
                                     </td>
                                 </tr>

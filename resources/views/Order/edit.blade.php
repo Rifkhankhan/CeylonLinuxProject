@@ -30,49 +30,48 @@
                     <div class="container mt-3">
                         <form method="post" action="{{route('order.update',$order->id)}}" enctype="multipart/form-data">
                             @csrf
-                            <table class=" table table-hover">
-                                </tbody>
+                            <table class="table table-hover">
+                                <tbody>
 
-                                <tr>
-                                    <th>Name
-                                    </th>
-                                    <td>
-                                        <input type="text" name="name" id="" value="{{$order->name}}"
-                                            class="form-control">
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th>Price
-                                    </th>
-                                    <td>
-                                        <input type="number" name="price" id="" value="{{$order->price}}"
-                                            class="form-control">
-                                    </td>
-                                </tr>
+                                    <tr>
+                                        <th>Customer Name
+                                        </th>
+                                        <td>
+                                            <select name="customerid" id="" required>
+                                                @foreach($customers as $customer)
+                                                    <option value="{{$customer->id}}" {{$customer->id == $order->customerid ? "selected":''}}>{{$customer->name}}</option>
+                                                @endforeach
+                                            </select>
+                                        </td>
+                                    </tr>
 
-                                <tr>
-                                    <th>Code
-                                    </th>
+                                    <tr>
+                                        <th>Product Name
+                                        </th>
+                                        <td>
+                                            <select name="productid" id="" required>
+                                                @foreach($products as $product)
+                                                    <option value="{{$product->id}}" {{$product->id == $order->productid ? "selected":''}}>{{$product->name}}</option>
+                                                @endforeach
+                                            </select>
+                                        </td>
 
-                                    <td>
-                                        <input   class="form-control" type='text' name='code' value="{{$order->code}}"></input>
-                                    </td>
+                                    </tr>
 
-                                </tr>
-                                <tr>
-                                    <th>Expiry Date
-                                    </th>
+                                    <tr>
+                                        <th>Quantity
+                                        </th>
+                                        <td>
+                                            <input type="number" name="quantity" min="0" id="">
+                                        </td>
 
-                                    <td>
-                                        <input   class="form-control" type='date' name='expirydate' value="{{$order->expirydate}}"></input>
-                                    </td>
-
-                                </tr>
+                                    </tr>
 
 
 
 
                                 </tbody>
+
                             </table>
                             <button type="submit" class="btn btn-success">Update</button>
                         </form>

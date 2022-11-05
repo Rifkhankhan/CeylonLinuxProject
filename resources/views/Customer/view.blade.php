@@ -32,7 +32,7 @@
                                     <th>Address
                                     </th>
                                     <td>
-                                        {{$customer->Address}}
+                                        {{$customer->address}}
                                     </td>
                                 </tr>
                                 <tr>

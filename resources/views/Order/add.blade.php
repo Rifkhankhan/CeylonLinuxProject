@@ -32,26 +32,35 @@
                                 <tbody>
 
                                     <tr>
-                                        <th>Name
+                                        <th>Customer Name
                                         </th>
                                         <td>
-                                            <input type="text" name="name" id="" required>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th>Price
-                                        </th>
-                                        <td>
-                                            <input type="number" name="price" id="" required>
+                                            <select name="customerid" id="" required>
+                                                @foreach($customers as $customer)
+                                                    <option value="{{$customer->id}}">{{$customer->name}}</option>
+                                                @endforeach
+                                            </select>
                                         </td>
                                     </tr>
 
-
                                     <tr>
-                                        <th>Expiry Date
+                                        <th>Product Name
                                         </th>
                                         <td>
-                                            <input type="date" name="expirydate" id="" required>
+                                            <select name="productid" id="" required>
+                                                @foreach($products as $product)
+                                                    <option value="{{$product->id}}">{{$product->name}}</option>
+                                                @endforeach
+                                            </select>
+                                        </td>
+
+                                    </tr>
+
+                                    <tr>
+                                        <th>Quantity
+                                        </th>
+                                        <td>
+                                            <input type="number" name="quantity" min="0" id="">
                                         </td>
 
                                     </tr>
@@ -62,7 +71,7 @@
                                 </tbody>
 
                             </table>
-                            <button type="submit" class="btn btn-success">Create</button>
+                            <button type="submit" class="btn btn-success">Order</button>
 
 
                         </form>

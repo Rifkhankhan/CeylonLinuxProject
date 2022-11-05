@@ -26,10 +26,12 @@
                             <thead>
                                 <tr class="text-center">
                                     <th>ID</th>
-                                    <th>Name</th>
-                                    <th>Price</th>
-                                    <th>Expiry Date</th>
-                                    <th>Code</th>
+                                    <th>Order No</th>
+                                    <th>Customer Name</th>
+                                    <th>Order Date</th>
+                                    <th>Order Time</th>
+                                    <th>Net Amount</th>
+                                    <th>Detail</th>
 
                                 </tr>
                             </thead>
@@ -40,10 +42,11 @@
                                 @foreach($orders as $order)
                                 <tr class="text-center">
                                     <td>{{++$i}}</td>
-                                    <td>{{$order->name}}</td>
-                                    <td>{{$order->price}}</td>
-                                    <td>{{$order->expirydate}}</td>
-                                    <td>{{$order->code}}</td>
+                                    <td>{{$order->orderid}}</td>
+                                    <td>{{$order->customerid}}</td>
+                                    <td>{{$order->orderdate}}</td>
+                                    <td>{{$order->ordertime}}</td>
+                                    <td>{{$order->netamount}}</td>
                                     <td>
                                         <a href="{{route('order.view',$order->id)}}" class="btn btn-primary">View</a>
                                         <a href="{{route('order.edit',$order->id)}}" class="btn btn-success">Edit</a>

@@ -35,19 +35,18 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <a href="{{route('product.create')}}" class="btn btn-primary">Create</a>
+                                    <a href="{{route('order.create')}}" class="btn btn-primary">Create</a>
                                 </tr>
-                                @foreach($products as $product)
+                                @foreach($orders as $order)
                                 <tr class="text-center">
                                     <td>{{++$i}}</td>
-                                    <td>{{$product->name}}</td>
-                                    <td>{{$product->price}}</td>
-                                    <td>{{$product->expirydate}}</td>
-                                    <td>{{$product->code}}</td>
+                                    <td>{{$order->name}}</td>
+                                    <td>{{$order->price}}</td>
+                                    <td>{{$order->expirydate}}</td>
+                                    <td>{{$order->code}}</td>
                                     <td>
-                                        <a href="{{route('product.view',$product->id)}}" class="btn btn-primary">View</a>
-                                        <a href="{{route('product.edit',$product->id)}}" class="btn btn-success">Edit</a>
-                                        <!-- <a href="{{route('product.delete',$product->id)}}" class="btn btn-danger">Delete</a> -->
+                                        <a href="{{route('order.view',$order->id)}}" class="btn btn-primary">View</a>
+                                        <a href="{{route('order.edit',$order->id)}}" class="btn btn-success">Edit</a>
 
                                     </td>
                                 </tr>

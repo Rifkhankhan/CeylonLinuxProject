@@ -70,6 +70,11 @@
                         <li  class="nav-item">
                             <a class="btn btn-danger m-1" class="nav-link" href="{{route('customer.home')}}">{{ __('Customers') }}</a>
                         </li>
+
+
+                        <li  class="nav-item">
+                            <a class="btn btn-secondary m-1" class="nav-link" href="{{route('order.home')}}">{{ __('Orders') }}</a>
+                        </li>
                         <li class="nav-item dropdown d-f">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

@@ -21,19 +21,36 @@ use App\Http\Controllers\IssueController;
 */
 
 Route::get('/', function () {
-   return view('welcome');
+   return redirect()->route('product.home');
 });
+
+Route::get('/product', function () {
+    return redirect()->route('product.home');
+ });
+
+ Route::get('/customer', function () {
+    return redirect()->route('customer.home');
+ });
+
+ Route::get('/issue', function () {
+    return redirect()->route('issue.home');
+ });
+
+ Route::get('/order', function () {
+    return redirect()->route('order.home');
+ });
+
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/create',[App\Http\Controllers\HomeController::class,'create'])->name('create');
-Route::get('/view/{id}',[App\Http\Controllers\HomeController::class,'view'])->name('view');
-Route::get('/edit/{id}',[App\Http\Controllers\HomeController::class,'edit'])->name('edit');
-Route::get('/delete/{id}',[App\Http\Controllers\HomeController::class,'delete'])->name('delete');
-Route::post('/store',[App\Http\Controllers\HomeController::class,'store'])->name('store');
-Route::post('/update/{id}',[App\Http\Controllers\HomeController::class,'update'])->name('update');
-Route::get('/status/{id}',[App\Http\Controllers\HomeController::class,'changeStatus'])->name('status');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/create',[App\Http\Controllers\HomeController::class,'create'])->name('create');
+// Route::get('/view/{id}',[App\Http\Controllers\HomeController::class,'view'])->name('view');
+// Route::get('/edit/{id}',[App\Http\Controllers\HomeController::class,'edit'])->name('edit');
+// Route::get('/delete/{id}',[App\Http\Controllers\HomeController::class,'delete'])->name('delete');
+// Route::post('/store',[App\Http\Controllers\HomeController::class,'store'])->name('store');
+// Route::post('/update/{id}',[App\Http\Controllers\HomeController::class,'update'])->name('update');
+// Route::get('/status/{id}',[App\Http\Controllers\HomeController::class,'changeStatus'])->name('status');
 
 
 Route::prefix('product')->group(function(){
@@ -67,6 +84,17 @@ Route::prefix('issue')->group(function(){
     Route::post('/store',[App\Http\Controllers\IssueController::class,'store'])->name('issue.store');
     Route::post('/update/{id}',[App\Http\Controllers\IssueController::class,'update'])->name('issue.update');
     Route::get('/create',[App\Http\Controllers\IssueController::class,'create'])->name('issue.create');
+
+});
+
+Route::prefix('order')->group(function(){
+    Route::get('/home', [App\Http\Controllers\OrderController::class, 'index'])->name('order.home');
+    Route::get('/view/{id}',[App\Http\Controllers\OrderController::class,'view'])->name('order.view');
+    Route::get('/edit/{id}',[App\Http\Controllers\OrderController::class,'edit'])->name('order.edit');
+    Route::get('/delete/{id}',[App\Http\Controllers\OrderController::class,'delete'])->name('order.delete');
+    Route::post('/store',[App\Http\Controllers\OrderController::class,'store'])->name('order.store');
+    Route::post('/update/{id}',[App\Http\Controllers\OrderController::class,'update'])->name('order.update');
+    Route::get('/create',[App\Http\Controllers\OrderController::class,'create'])->name('order.create');
 
 });
 // Auth::routes();

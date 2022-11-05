@@ -7,6 +7,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\IssueController;
 
 /*
 |--------------------------------------------------------------------------
@@ -55,6 +56,17 @@ Route::prefix('customer')->group(function(){
     Route::post('/store',[App\Http\Controllers\CustomerController::class,'store'])->name('customer.store');
     Route::post('/update/{id}',[App\Http\Controllers\CustomerController::class,'update'])->name('customer.update');
     Route::get('/create',[App\Http\Controllers\CustomerController::class,'create'])->name('customer.create');
+
+});
+
+Route::prefix('issue')->group(function(){
+    Route::get('/home', [App\Http\Controllers\IssueController::class, 'index'])->name('issue.home');
+    Route::get('/view/{id}',[App\Http\Controllers\IssueController::class,'view'])->name('issue.view');
+    Route::get('/edit/{id}',[App\Http\Controllers\IssueController::class,'edit'])->name('issue.edit');
+    Route::get('/delete/{id}',[App\Http\Controllers\IssueController::class,'delete'])->name('issue.delete');
+    Route::post('/store',[App\Http\Controllers\IssueController::class,'store'])->name('issue.store');
+    Route::post('/update/{id}',[App\Http\Controllers\IssueController::class,'update'])->name('issue.update');
+    Route::get('/create',[App\Http\Controllers\IssueController::class,'create'])->name('issue.create');
 
 });
 // Auth::routes();

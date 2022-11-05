@@ -64,7 +64,7 @@
                         </li>
 
                         <li  class="nav-item">
-                            <a class="btn btn-primary m-1" class="nav-link" href="#">{{ __('Issues') }}</a>
+                            <a class="btn btn-primary m-1" class="nav-link" href="{{route('issue.home')}}">{{ __('Issues') }}</a>
                         </li>
 
                         <li  class="nav-item">

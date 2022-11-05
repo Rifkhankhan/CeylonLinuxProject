@@ -39,19 +39,19 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <th>Price
+                                        <th>Address
                                         </th>
                                         <td>
-                                            <input type="number" name="price" id="" required>
+                                            <input type="text" name="address" id="" required>
                                         </td>
                                     </tr>
 
 
                                     <tr>
-                                        <th>Expiry Date
+                                        <th>Contact
                                         </th>
                                         <td>
-                                            <input type="date" name="expirydate" id="" required>
+                                            <input type="text" name="contact" id="" minLength="9" maxLength="10" required>
                                         </td>
 
                                     </tr>

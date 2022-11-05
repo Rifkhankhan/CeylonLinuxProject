@@ -27,8 +27,8 @@
                                 <tr class="text-center">
                                     <th>ID</th>
                                     <th>Name</th>
-                                    <th>Price</th>
-                                    <th>Expiry Date</th>
+                                    <th>Address</th>
+                                    <th>Contact</th>
                                     <th>Code</th>
 
                                 </tr>
@@ -41,8 +41,8 @@
                                 <tr class="text-center">
                                     <td>{{++$i}}</td>
                                     <td>{{$customer->name}}</td>
-                                    <td>{{$customer->price}}</td>
-                                    <td>{{$customer->expirydate}}</td>
+                                    <td>{{$customer->address}}</td>
+                                    <td>{{$customer->contact}}</td>
                                     <td>{{$customer->code}}</td>
                                     <td>
                                         <a href="{{route('customer.view',$customer->id)}}" class="btn btn-primary">View</a>

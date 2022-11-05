@@ -52,8 +52,8 @@ class CustomerController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'price' => "required|numeric|gt:0",
-            'expirydate' => "required",
+            'contact' => "required|numeric|gt:0",
+            'address' => "required",
 
         ]);
 
@@ -61,9 +61,9 @@ class CustomerController extends Controller
 
         $customer = DB::table('customers')->insert([
             'name' => $request->name,
-            'code' =>   hexdec(uniqid()),
-            'price' => $request->price,
-            'expirydate' => $request->expirydate,
+            'code' =>hexdec(uniqid()),
+            'contact' => $request->contact,
+            'address' => $request->address,
         ]);
 
 
@@ -75,19 +75,19 @@ class CustomerController extends Controller
         $request->validate([
             'name' => 'required',
             'code' => 'required',
-            'price' => "required|numeric|gt:0",
-            'expirydate' => "required",
+            'contact' => "required",
+            'address' => "required",
 
         ]);
 
 
 
 
-        $custome = DB::table('customer')->where('id',$id)->update([
+        DB::table('customers')->where('id',$id)->update([
             'name' => $request->name,
             'code' => $request->code,
-            'price' => $request->price,
-            'expirydate' => $request->expirydate,
+            'contact' => $request->contact,
+            'address' => $request->address,
         ]);
 
 

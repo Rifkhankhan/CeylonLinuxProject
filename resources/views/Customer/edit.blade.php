@@ -42,10 +42,10 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <th>Price
+                                    <th>Address
                                     </th>
                                     <td>
-                                        <input type="number" name="price" id="" value="{{$customer->price}}"
+                                        <input type="text" name="address" id="" value="{{$customer->address}}"
                                             class="form-control">
                                     </td>
                                 </tr>
@@ -60,11 +60,11 @@
 
                                 </tr>
                                 <tr>
-                                    <th>Expiry Date
+                                    <th>Contact
                                     </th>
 
                                     <td>
-                                        <input   class="form-control" type='date' name='expirydate' value="{{$customer->expirydate}}"></input>
+                                        <input   class="form-control" type='text' name='contact' value="{{$customer->contact}}" maxLength="10" minLength="9"></input>
                                     </td>
 
                                 </tr>

@@ -29,10 +29,10 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <th>Price
+                                    <th>Address
                                     </th>
                                     <td>
-                                        {{$customer->price}}
+                                        {{$customer->Address}}
                                     </td>
                                 </tr>
                                 <tr>
@@ -43,10 +43,10 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <th>Expiry Date
+                                    <th>Contact
                                     </th>
                                     <td>
-                                        {{$customer->expirydate}}
+                                        {{$customer->contact}}
                                     </td>
                                 </tr>
 

@@ -27,7 +27,7 @@
                                 <tr class="text-center">
                                     <th>ID</th>
                                     <th>Order No</th>
-                                    <th>Customer ID</th>
+                                    <th>Customer Name</th>
                                     <th>Order Date</th>
                                     <th>Order Time</th>
                                     <th>Net Amount</th>
@@ -43,13 +43,12 @@
                                 <tr class="text-center">
                                     <td>{{++$i}}</td>
                                     <td>{{$order->orderid}}</td>
-                                    <td>{{$order->customerid}}</td>
+                                    <td>{{$order->customer}}</td>
                                     <td>{{$order->orderdate}}</td>
                                     <td>{{$order->ordertime}}</td>
                                     <td>{{$order->netamount}}</td>
                                     <td>
-                                        <a href="{{route('order.view',$order->id)}}" class="btn btn-primary">View</a>
-                                        <!-- <a href="{{route('order.edit',$order->id)}}" class="btn btn-success">Edit</a> -->
+                                        <a href="{{route('order.view',$order->orderid)}}" class="btn btn-primary">View</a>
 
                                     </td>
                                 </tr>

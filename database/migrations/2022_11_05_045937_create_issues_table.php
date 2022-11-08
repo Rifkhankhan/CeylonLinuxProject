@@ -17,13 +17,14 @@ class CreateIssuesTable extends Migration
             $table->id();
             $table->string('name');
             $table->enum('type',['flat','multiple']);
-            $table->string('purchaseproduct');
+            $table->unsignedBigInteger('purchaseproduct');
             $table->string('freeproduct');
             $table->integer('pquantity');
             $table->integer('fquantity');
             $table->integer('lowerlimit');
             $table->integer('upperlimit');
             $table->rememberToken();
+            $table->foreign('purchaseproduct')->references('id')->on('products');
             $table->timestamps();
         });
     }

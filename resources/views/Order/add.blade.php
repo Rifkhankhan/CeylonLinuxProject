@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container-fluid">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -26,7 +26,7 @@
                     @endif
                     <a href="{{route('order.home')}}" class="btn btn-secondary">Back</a>
                     <div class="container mt-3">
-                        <form method="POST" action="{{route('order.store')}}" enctype="multipart/form-data">
+                        <form method="POST" action="{{route('order.store')}}" enctype="multipart/form-data" id="form">
                             @csrf
                             <table class="table table-hover">
                                 <tbody>
@@ -42,38 +42,39 @@
                                             </select>
                                         </td>
                                     </tr>
-
-                                    <tr>
-                                        <th>Product Name
-                                        </th>
-                                        <td>
-                                            <select name="productid" id="" required>
-                                                @foreach($products as $product)
-                                                    <option value="{{$product->id}}">{{$product->name}}</option>
-                                                @endforeach
-                                            </select>
-                                        </td>
-
-                                    </tr>
-
-                                    <tr>
-                                        <th>Quantity
-                                        </th>
-                                        <td>
-                                            <input type="number" name="quantity" min="0" id="">
-                                        </td>
-
-                                    </tr>
-
-
-
-
                                 </tbody>
-
                             </table>
-                            <button type="submit" class="btn btn-success">Order</button>
+                            <br>
+                            <table class="table table-hover table-bordered"  id="example" >
+                            <thead>
+                                <tr >
+                                    <th></th>
+                                    <th>Product Name</th>
+                                    <th>Product Code</th>
+                                    <th>Price</th>
+                                    <th>Quantity Free</th>
+                                    <th>Amount</th>
 
 
+                                </tr>
+                            </thead>
+                                <tbody>
+
+                                    @foreach($purchases as $purchase)
+                                        <tr id="issueid">
+                                            <td>{{$purchase->id}}</td>
+                                            <td>{{$purchase->product}}</td>
+                                            <td>{{$purchase->code}}</td>
+                                            <td>{{$purchase->price}}</td>
+                                            <td>{{$purchase->fquantity}}</td>
+                                            <td>{{$purchase->price}}</td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+
+
+                            <button type="submit"  id="order-btn" class="btn btn-success">Order</button>
                         </form>
 
                     </div>
@@ -82,4 +83,6 @@
         </div>
     </div>
 </div>
+
+
 @endsection

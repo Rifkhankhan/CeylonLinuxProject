@@ -71,7 +71,7 @@
                                         <td>
                                             <select name="freeproduct" id="" class="p-1">
                                                 @foreach($products as $product)
-                                                    <option value="{{$product->id}}">{{$product->name}}</option>
+                                                    <option value="{{$product->name}}">{{$product->name}}</option>
                                                 @endforeach
                                             </select>
                                         </td>

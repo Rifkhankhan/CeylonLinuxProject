@@ -25,28 +25,28 @@
                                     <th>Free Issue Label
                                     </th>
                                     <td>
-                                        {{$issue->name}}
+                                        {{$purchase->issue}}
                                     </td>
                                 </tr>
                                 <tr>
                                     <th>Type
                                     </th>
                                     <td>
-                                        {{$issue->type}}
+                                        {{$purchase->type}}
                                     </td>
                                 </tr>
                                 <tr>
                                     <th>Purchase Product
                                     </th>
                                     <td>
-                                        {{$issue->purchaseproduct}}
+                                        {{$purchase->product}}
                                     </td>
                                 </tr>
                                 <tr>
                                     <th>Free Product
                                     </th>
                                     <td>
-                                        {{$issue->freeproduct}}
+                                        {{$purchase->freeproduct}}
                                     </td>
                                 </tr>
 
@@ -54,7 +54,7 @@
                                     <th>Purchase Quantity
                                     </th>
                                     <td>
-                                        {{$issue->pquantity}}
+                                        {{$purchase->pquantity}}
                                     </td>
                                 </tr>
 
@@ -63,7 +63,7 @@
                                     <th>Free Quantity
                                     </th>
                                     <td>
-                                        {{$issue->fquantity}}
+                                        {{$purchase->fquantity}}
                                     </td>
                                 </tr>
 
@@ -71,7 +71,7 @@
                                     <th>Lower Limit
                                     </th>
                                     <td>
-                                        {{$issue->lowerlimit}}
+                                        {{$purchase->lowerlimit}}
                                     </td>
                                 </tr>
 
@@ -79,7 +79,7 @@
                                     <th>Upper Limit
                                     </th>
                                     <td>
-                                        {{$issue->upperlimit}}
+                                        {{$purchase->upperlimit}}
                                     </td>
                                 </tr>
 

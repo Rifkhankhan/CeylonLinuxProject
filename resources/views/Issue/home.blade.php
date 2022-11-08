@@ -45,9 +45,9 @@
                                 @foreach($issues as $issue)
                                 <tr class="text-center">
                                     <td>{{++$i}}</td>
-                                    <td>{{$issue->name}}</td>
+                                    <td>{{$issue->issue}}</td>
                                     <td>{{$issue->type}}</td>
-                                    <td>{{$issue->purchaseproduct}}</td>
+                                    <td>{{$issue->product}}</td>
                                     <td>{{$issue->freeproduct}}</td>
                                     <td>{{$issue->pquantity}}</td>
                                     <td>{{$issue->fquantity}}</td>

@@ -24,11 +24,28 @@ class IssueController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
+
+     // 'name',
+// 'type',
+// 'purchaseproduct',
+// 'freeproduct',
+// 'pquantity',
+// 'fquantity',
+// 'lowerlimit',
+// 'upperlimit',
+
+// 'name',
+// 'code',
+// 'price',
+// 'expirydate',
     public function index()
     {
-        $issues = Issue::all();
-
+        // $issues = Issue::all();
         $i = 0;
+        $issues = DB::table('issues')
+                  ->select("issues.id as id","issues.name as issue","products.name as product","issues.type as type","issues.freeproduct as freeproduct","issues.pquantity as pquantity","issues.fquantity as fquantity","issues.lowerlimit as lowerlimit","issues.upperlimit as upperlimit","products.code as code","products.price as price","products.expirydate as expirydate")
+                  ->join('products',"products.id","=","issues.purchaseproduct")
+                  ->get();
         return view('Issue.home', compact('issues', 'i'));
     }
 
@@ -50,8 +67,16 @@ class IssueController extends Controller
 
     public function view($id)
     {
-        $issue = Issue::where('id', $id)->first();
-        return view('Issue.view', compact('issue'));
+    //     $issuepro = Issue::where('id', $id)->first();
+
+        $purchase = DB::table('issues')
+                ->join('products',"products.id","=","issues.purchaseproduct")
+                ->select("issues.id as id","issues.name as issue","products.name as product","issues.type as type","issues.freeproduct as freeproduct","issues.pquantity as pquantity","issues.fquantity as fquantity","issues.lowerlimit as lowerlimit","issues.upperlimit as upperlimit","products.code as code","products.price as price","products.expirydate as expirydate")
+                ->get()
+                ->where('id',$id)
+                ->first();
+
+        return view('Issue.view', compact('purchase'));
 
     }
 

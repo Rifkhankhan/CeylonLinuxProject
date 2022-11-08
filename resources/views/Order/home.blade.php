@@ -48,7 +48,7 @@
                                     <td>{{$order->ordertime}}</td>
                                     <td>{{$order->netamount}}</td>
                                     <td>
-                                        <a href="{{route('order.view',$order->orderid)}}" class="btn btn-primary">View</a>
+                                        <a href="{{route('order.view',$order->id)}}" class="btn btn-primary">View</a>
 
                                     </td>
                                 </tr>

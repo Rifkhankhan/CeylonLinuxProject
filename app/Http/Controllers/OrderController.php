@@ -33,7 +33,7 @@ class OrderController extends Controller
 
         $orders = DB::table('orders')
         ->join('customers',"customers.id","=","orders.customerid")
-        ->select("orders.orderid as orderid","customers.name as customer","orders.orderdate as orderdate","orders.ordertime as ordertime","orders.netamount as netamount")
+        ->select("orders.id as id","orders.orderid as orderid","customers.name as customer","orders.orderdate as orderdate","orders.ordertime as ordertime","orders.netamount as netamount")
         ->get();
 
         return view('Order.home', compact('orders', 'i'));
@@ -66,7 +66,7 @@ class OrderController extends Controller
 
     public function view($id)
     {
-        $order = Order::where('id', $id)->first();
+        $order = Order::find($id);
         $customer = Customer::find($order->customerid);
         return view('Order.view', compact('order','customer'));
     }
@@ -78,29 +78,45 @@ class OrderController extends Controller
         $netAmount = 0;
 
         print_r($request->rows);
-        // $request->validate([
-        //     'customerid' => 'required',
-        //     'rows' => 'required',
-        // ]);
 
-        // foreach($request->rows as $row){
-        //     $netAmount = $netAmount + $row;
-        // }
+        $request->validate([
+            'customerid' => 'required',
+            'rows' => 'required',
+        ]);
+         $purchases = DB::table('issues')
+        ->join('products',"products.id","=","issues.purchaseproduct")
+        ->select("products.price as price","issues.id as id")
+        ->get();
+
+        $amount = [];
+        foreach($request->rows as $row){
+
+           foreach($purchases as $purchase)
+           {
+                if($row == $purchase->id)
+                {
+                    $netAmount = $netAmount + $purchase->price;
+                }
+           }
+            // $netAmount = $netAmount + $purchases->select('price')->first();
+        }
 
         // echo($netAmount);
 
-        // DB::table('orders')->insert([
-        //     'orderid'=> hexdec(uniqid()),
-        //     'customerid' => $request->customerid,
-
-        //     'orderdate' => Carbon::today()->format('Y-m-d'),
-        //     'ordertime' =>Carbon::now()->format('H:i:m'),
-        //     'netamount' => $netAmount,
-
-        // ]);
 
 
-        // return redirect()->route('order.home')->with('success', 'successfully inserted');
+        DB::table('orders')->insert([
+            'orderid'=> hexdec(uniqid()),
+            'customerid' => $request->customerid,
+
+            'orderdate' => Carbon::today()->format('Y-m-d'),
+            'ordertime' =>Carbon::now()->format('H:i:m'),
+            'netamount' => $netAmount,
+
+        ]);
+
+
+        return redirect()->route('order.home')->with('success', 'successfully inserted');
     }
 
     // public function update(Request $request, $id)
